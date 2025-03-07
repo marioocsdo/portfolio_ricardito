@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+    <div class="carrusel_main">
+        <div class="lista">
+            <div class="peli tipo1" data-img=""></div>
+            <div class="peli tipo1" data-img=""></div>
+            <div class="peli tipo1" data-img=""></div>
+            <div class="peli tipo1" data-img=""></div>
+            <div class="peli tipo1" data-img=""></div>
+            <div class="peli tipo1" data-img=""></div>
+            <div class="peli tipo1" data-img=""></div>
+            <div class="peli tipo1" data-img=""></div>
+            <div class="peli tipo1" data-img=""></div>
+            <div class="peli tipo1" data-img=""></div>
+            <div class="peli tipo1" data-img=""></div>
+            <div class="peli tipo1" data-img=""></div>
+        </div>
+        <div class="lista">
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+        </div>
+        <div class="lista">
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+        </div>
+        <div class="lista">
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+        </div><div class="lista">
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+        </div>
+        <div class="lista">
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+        </div>
+        <div class="lista">
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+            <div class="peli tipo1"></div>
+        </div>
+        <div class="lista">
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+            <div class="peli tipo2"></div>
+        </div>
+        
+
+    </div>
+
+</div>
+
+
+    <div class="ventana_main">
+        <h1>INICIO</h1>
+    </div>
+
+</body>
+</html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Cargar el archivo imagenes.json
+        fetch('imagenes.json')
+            .then(response => response.json())  // Parsear el archivo JSON
+            .then(imagenes => {
+                // Selecciona todos los divs con clase "peli"
+                const peliculas = document.querySelectorAll(".peli");
+
+                // Asigna las imágenes a los divs de manera secuencial
+                peliculas.forEach((peli, index) => {
+                    const imgSrc = imagenes[index % imagenes.length];  // Usa el índice para asignar la imagen
+                    peli.style.backgroundImage = `url("${imgSrc}")`;
+                    peli.style.backgroundSize = "cover";
+                    peli.style.backgroundPosition = "center";
+                });
+            })
+            .catch(error => {
+                console.error("Error al cargar el archivo JSON:", error);
+            });
+    });
+</script>
