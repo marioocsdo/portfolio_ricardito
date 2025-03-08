@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="mascara.svg">
 </head>
 <body>
     <div class="main">
@@ -128,7 +129,19 @@
 
 
     <div class="ventana_main">
-        <h1>INICIO</h1>
+        <div class="top"></div>
+        
+        <div class="name">
+            <h1 id="titulo">Ricardo Ferllen</h1>
+            <h3>Movie Creative Designer</h3>
+            <p>I do movie designs for many brands as Universal <br>Warner Bros and many more.</p>
+            <ion-icon name="arrow-down-outline" id="icono-bajar"></ion-icon>
+        </div>
+        <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="10" cy="10" r="10" fill="black"/>
+          </svg>
+        
+        <div class="test">test</div>
     </div>
 
 </body>
@@ -155,4 +168,40 @@
                 console.error("Error al cargar el archivo JSON:", error);
             });
     });
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const ventana = document.querySelector(".ventana_main");
+    const test = document.querySelector(".test");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                ventana.classList.add("expand"); // Expande cuando test aparece
+            }
+        });
+    }, { threshold: 0.1 }); // Detecta cuando al menos el 10% de test es visible
+
+    observer.observe(test);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const ventana = document.querySelector(".ventana_main");
+    const test = document.querySelector(".top");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                ventana.classList.remove("expand"); // Expande cuando test aparece
+            }
+        });
+    }, { threshold: 0.1 }); // Detecta cuando al menos el 10% de test es visible
+
+    observer.observe(test);
+});
+
+
 </script>
+
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
